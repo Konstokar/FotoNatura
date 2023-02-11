@@ -12,10 +12,10 @@ public class ImageModel {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @Lob // указание на большие объекты
+    @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] imageBytes;
-    @JsonIgnore // пометка свойства/списка свойств, которые следует игнорировать
+    @JsonIgnore
     private Long userId;
     @JsonIgnore
     private Long postId;

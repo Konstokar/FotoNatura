@@ -22,11 +22,9 @@ public class Post {
     @Column
     @ElementCollection(targetClass = String.class)
     private Set<String> likedUsers = new HashSet<>();
-    @ManyToOne(fetch = FetchType.LAZY) // отношение "многие к одному" (обратный аналог @OneToMany)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "post", orphanRemoval = true)
-    // CascadeType.REFRESH - дубликат действий, которые выполняются с родительским объектом к его зависимому объекту
-    // FetchType.EAGER - при загрузке родительской сущности автоматически загружаются и дочерние сущности
     private List<Comment> comments = new ArrayList<>();
     @Column(updatable = false)
     private LocalDateTime createdDate;
