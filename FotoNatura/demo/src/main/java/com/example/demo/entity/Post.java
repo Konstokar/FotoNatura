@@ -2,13 +2,11 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 @Data
 @Entity
 public class Post {
@@ -28,7 +26,6 @@ public class Post {
     private List<Comment> comments = new ArrayList<>();
     @Column(updatable = false)
     private LocalDateTime createdDate;
-
     @PrePersist
     protected void onCreate(){
         this.createdDate = LocalDateTime.now();

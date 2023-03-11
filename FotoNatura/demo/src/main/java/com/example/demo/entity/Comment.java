@@ -2,9 +2,7 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDateTime;
-
 @Data
 @Entity
 public class Comment {
@@ -21,7 +19,6 @@ public class Comment {
     private String message;
     @Column(updatable = false)
     private LocalDateTime createdDate;
-
     @PrePersist
     protected void onCreate(){
         this.createdDate = LocalDateTime.now();

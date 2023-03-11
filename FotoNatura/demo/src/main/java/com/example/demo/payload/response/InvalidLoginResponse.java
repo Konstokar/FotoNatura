@@ -1,8 +1,7 @@
 package com.example.demo.payload.response;
 
 import lombok.Getter;
-
-@Getter // геттеры
+@Getter
 public class InvalidLoginResponse {
     private String username;
     private String password;

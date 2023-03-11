@@ -2,26 +2,18 @@ package com.example.demo.security;
 
 import com.example.demo.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean; // Информирует Spring о том, что возвращаемый данным методом объект
-// должен быть зарегистрирован, как бин.
-import org.springframework.context.annotation.Configuration; // Указывает, что класс содержит методы определения @Bean
-import org.springframework.security.authentication.AuthenticationManager; // Обрабатывает Authentication запрос.
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity; // Включает
-// глобальную безопасность метода Spring Security, аналогичную поддержке <global-method-security> xml.
-import org.springframework.security.config.annotation.web.builders.HttpSecurity; // Позволяет настраивать
-// веб-безопасность для определенных HTTP-запросов
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity; // Позволяет Spring найти и
-// автоматически применить класс к глобальному WebSecurity.
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; // Предоставляет
-// удобный базовый класс для создания WebSecurityConfigurer экземпляра
-import org.springframework.security.config.http.SessionCreationPolicy; // Указывает различные политики создания сеансов
-// для Spring Security
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // Реализация PasswordEncoder, использующая
-// функцию строгого хеширования BCrypt
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter; // Обрабатывает отправку
-// формы аутентификации.
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -55,9 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    @Bean(BeanIds.AUTHENTICATION_MANAGER) // BeanIds содержит глобально используемые идентификаторы Bean ID по умолчанию
-    // для bean-компонентов, созданных поддержкой пространства имен в Spring Security 2 (используются по умолчанию).
-    // AUTHENTICATION_MANAGER - «глобальный» экземпляр AuthenticationManager, зарегистрированный элементом <authentication-manager>
+    @Bean(BeanIds.AUTHENTICATION_MANAGER)
     protected AuthenticationManager authenticationManager() throws Exception{
         return super.authenticationManager();
     }
